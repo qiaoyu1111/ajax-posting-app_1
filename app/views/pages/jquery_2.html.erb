@@ -1,0 +1,26 @@
+<p><a id="my-open-click">Open Now</a></p>
+
+<div id="foo" style="border: 1px solid red;">
+  <a id="my-hide-click">Hide Now</a>
+  <p>bar</p>
+</div>
+
+
+<script>
+  $("#foo").hide();
+  console.log("checkpoint 1")
+
+  $("#my-open-click").click(function(){
+    console.log("checkpoint 2")
+    $("#foo").slideDown();
+    console.log("checkpoint 3")
+  })
+
+  $("#my-hide-click").click(function(){
+    console.log("checkpoint 4")
+    $("#foo").slideUp();
+    console.log("checkpoint 5")
+  })
+
+  console.log("checkpoint 6")
+</script>
