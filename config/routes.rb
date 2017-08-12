@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     member do
       post "like" => "posts#like"
       post "unlike" => "posts#unlike"
+      post "love" => "posts#love"
+      post "quit" => "posts#quit"
     end
   end
   devise_for :users

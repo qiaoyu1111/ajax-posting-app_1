@@ -8,4 +8,11 @@ class Post < ApplicationRecord
   def find_like(user)
     self.likes.where( :user_id => user.id ).first
   end
+
+  has_many :loves, :dependent => :destroy
+  has_many :loved_users, :through => :loves, :source => :user
+
+  def find_love(user)
+    self.loves.where( :user_id => user.id ).first
+  end
 end

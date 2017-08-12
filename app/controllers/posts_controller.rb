@@ -33,6 +33,22 @@ class PostsController < ApplicationController
     render "like"
   end
 
+  def love
+    @post = Post.find(params[:id])
+    unless @post.find_love(current_user)  # 如果已经按讚过了，就略过不再新增
+      Love.create( :user => current_user, :post => @post)
+    end
+  end
+
+  def quit
+    @post = Post.find(params[:id])
+    love = @post.find_love(current_user)
+    love.destroy
+
+    render "love"
+  end
+
+
   protected
 
   def post_params
